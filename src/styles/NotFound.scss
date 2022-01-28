@@ -1,0 +1,22 @@
+.notfound {
+  &__container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__msg {
+    color: white;
+  }
+  &__return {
+    background-color: rgba($color: white, $alpha: 0.1);
+    align-self: flex-start;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 45px;
+    border-radius: 30px;
+    &:hover {
+      background-color: rgba($color: white, $alpha: 0.3);
+    }
+  }
+}

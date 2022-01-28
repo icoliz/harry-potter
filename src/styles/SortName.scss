@@ -1,0 +1,12 @@
+.form {
+  &__checksort {
+    width: 100%;
+    &--input {
+      margin: 15px 0 15px 15px;
+      border-radius: 10px;
+    }
+    &--label {
+      font-size: 24px;
+    }
+  }
+}

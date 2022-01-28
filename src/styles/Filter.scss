@@ -1,0 +1,30 @@
+@import 'core/variables';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: black;
+  width: 100%;
+  max-width: 800px;
+  font-family: 'Dumbledor';
+  color: white;
+  padding: 45px;
+
+  &__btn {
+    // background-color: #718696;
+    background-color: rgba($color: $ravenclawBrown, $alpha: 0.15);
+    align-self: center;
+    color: whitesmoke;
+    width: 250px;
+    height: 45px;
+    border: solid 2px rgba($color: $ravenclawBlue, $alpha: 0.15);
+    border-radius: 23px;
+    padding: 5px 10px;
+    margin-top: 20px;
+    &:hover {
+      background-color: $ravenclawBlue;
+      border: none;
+    }
+  }
+}

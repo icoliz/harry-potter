@@ -1,0 +1,19 @@
+@import 'core/variables';
+
+.main__characters--list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 45px;
+}
+
+.error-msg {
+  padding: 0 45px;
+  padding-bottom: 50px;
+  color: white;
+  text-align: center;
+  font-family: $mainFont;
+}
