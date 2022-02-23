@@ -12,7 +12,7 @@ function SortName({ checked, handleChange }) {
   return (
     <div className="form__checksort">
       <label className="form__checksort--label" htmlFor="sortname">
-        Ordenar alfabéticamente
+        Ordena alfabéticamente
       </label>
       <input
         className="form__checksort--input"

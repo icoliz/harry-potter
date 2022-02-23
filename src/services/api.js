@@ -13,6 +13,7 @@ function callToApi(AppSelect) {
         species: char.species,
         alternateNames: char.alternate_names,
         birth: char.dateOfBirth,
+        actor: char.actor,
       }));
     });
 }

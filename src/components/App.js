@@ -15,7 +15,10 @@ function App() {
   const [data, setData] = useState(ls.get('lsData', []));
   const [search, setSearch] = useState(ls.get('lsSearch', ''));
   const [select, setSelect] = useState(ls.get('lsSelect', 'gryffindor'));
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(ls.get('lsChecked', false));
+  const [selectedSpecies, setSelectedSpecies] = useState(
+    ls.get('lsSelectedSpecies', 'all')
+  );
   const [isLoading, setIsLoading] = useState(false);
 
   // Call to Api and localStorage
@@ -31,7 +34,9 @@ function App() {
     ls.set('lsData', data);
     ls.set('lsSearch', search);
     ls.set('lsSelect', select);
-  }, [data, search, select, checked]);
+    ls.set('lsChecked', checked);
+    ls.set('lsSelectedSpecies', selectedSpecies);
+  }, [data, search, select, checked, selectedSpecies]);
 
   // Handlers
   const handleChange = (data) => {
@@ -41,6 +46,8 @@ function App() {
       setSelect(data.value);
     } else if (data.key === 'checked') {
       setChecked(data.value);
+    } else if (data.key === 'species') {
+      setSelectedSpecies(data.value);
     }
   };
 
@@ -48,17 +55,27 @@ function App() {
     setSearch('');
     setSelect('gryffindor');
     setChecked(false);
+    setSelectedSpecies('all');
   };
 
   // Filters
-
-  const filterData = data.filter((char) => {
-    if (search !== '') {
-      return char.name.toLocaleLowerCase().includes(search.toLocaleLowerCase());
-    } else {
-      return true;
-    }
-  });
+  const filterData = data
+    .filter((char) => {
+      if (selectedSpecies === 'all') {
+        return true;
+      } else {
+        return char.species === selectedSpecies;
+      }
+    })
+    .filter((char) => {
+      if (search !== '') {
+        return char.name
+          .toLocaleLowerCase()
+          .includes(search.toLocaleLowerCase());
+      } else {
+        return true;
+      }
+    });
 
   if (checked) {
     filterData.sort((a, b) => {
@@ -71,21 +88,6 @@ function App() {
       }
     });
   }
-
-  // Translations (for CharacterCard and CharacterDetail)
-  const translateSpecies = (char) => {
-    if (char.species === 'human' && char.gender === 'male') {
-      return 'Humano';
-    } else if (char.species === 'human' && char.gender === 'female') {
-      return 'Humana';
-    } else if (char.species === 'half-giant') {
-      return 'Medio gigante';
-    } else if (char.species === 'werewolf') {
-      return 'Hombre lobo';
-    } else if (char.species === 'ghost') {
-      return 'Fantasma';
-    }
-  };
 
   // If there are no results matching the search
   const noResults = (search) => {
@@ -103,12 +105,7 @@ function App() {
   const renderCharacterDetail = (props) => {
     const routeId = props.match.params.characterId;
     const foundCharacter = data.find((char) => char.id === routeId);
-    return (
-      <CharacterDetail
-        character={foundCharacter}
-        translateSpecies={translateSpecies}
-      />
-    );
+    return <CharacterDetail character={foundCharacter} />;
   };
 
   return (
@@ -125,6 +122,7 @@ function App() {
           <Route exact path="/">
             <section className="main__filter">
               <Filter
+                selectedSpecies={selectedSpecies}
                 search={search}
                 select={select}
                 checked={checked}
@@ -136,7 +134,6 @@ function App() {
               <CharacterList
                 filterData={filterData}
                 noResults={noResults(search)}
-                translateSpecies={translateSpecies}
               />
             </section>
           </Route>

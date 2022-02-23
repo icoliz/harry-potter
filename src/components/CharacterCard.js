@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
-import imgPlaceholder from '../images/user-placeholder.jpg';
+import getImgPlaceholder from '../services/getImgPlaceholder';
 import '../styles/CharacterCard.scss';
 
-function CharacterCard({ char, translateSpecies }) {
+function CharacterCard({ char, index, translateSpecies }) {
   return (
     <Link to={`/character/${char.id}`}>
       <article className="article" key={char.id}>
         <div className="article__frame">
           <img
-            className="article__frame--img"
-            src={char.image !== '' ? char.image : imgPlaceholder}
+            className={`article__frame--img ${char.image === '' ? 'gif' : ''}`}
+            src={char.image !== '' ? char.image : getImgPlaceholder(index)}
             alt={`Photo of ${char.name}`}
           />
         </div>

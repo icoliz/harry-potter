@@ -1,12 +1,17 @@
 import CharacterCard from './CharacterCard';
+import translateSpecies from '../services/translateSpecies';
 import propTypes from 'prop-types';
 import '../styles/CharacterList.scss';
 
-function CharacterList({ filterData, noResults, translateSpecies }) {
+function CharacterList({ filterData, noResults }) {
   const characterInfo = filterData.map((char, index) => {
     return (
       <li key={index} className="character">
-        <CharacterCard char={char} translateSpecies={translateSpecies} />
+        <CharacterCard
+          char={char}
+          index={index}
+          translateSpecies={translateSpecies}
+        />
       </li>
     );
   });
@@ -22,7 +27,6 @@ function CharacterList({ filterData, noResults, translateSpecies }) {
 CharacterList.propTypes = {
   filterData: propTypes.array.isRequired,
   noResults: propTypes.func,
-  translateSpecies: propTypes.func,
 };
 
 export default CharacterList;

@@ -1,16 +1,28 @@
 import propTypes from 'prop-types';
+import FilterSpecies from './FilterSpecies';
 import FilterName from './FilterName';
 import FilterHouse from './FilterHouse';
 import SortName from './SortName';
 import '../styles/Filter.scss';
 
-function Filter({ search, select, checked, handleChange, handleReset }) {
+function Filter({
+  selectedSpecies,
+  search,
+  select,
+  checked,
+  handleChange,
+  handleReset,
+}) {
   const handleClickReset = () => {
     handleReset();
   };
 
   return (
     <form className="form" onSubmit={(ev) => ev.preventDefault()}>
+      <FilterSpecies
+        selectedSpecies={selectedSpecies}
+        handleChange={handleChange}
+      />
       <FilterName search={search} handleChange={handleChange} />
       <FilterHouse select={select} handleChange={handleChange} />
       <SortName checked={checked} handleChange={handleChange} />

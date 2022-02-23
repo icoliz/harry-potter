@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
+import translateSpecies from '../services/translateSpecies';
 import imgPlaceholder from '../images/user-placeholder.jpg';
 import gryffindor from '../images/gryffindor.png';
 import slytherin from '../images/slytherin.png';
@@ -7,7 +8,7 @@ import ravenclaw from '../images/ravenclaw.png';
 import hufflepuff from '../images/hufflepuff.png';
 import '../styles/CharacterDetail.scss';
 
-function CharacterDetail({ character, translateSpecies }) {
+function CharacterDetail({ character }) {
   const findHouseBadge = () => {
     if (character.house === 'Gryffindor') {
       return gryffindor;
@@ -46,7 +47,7 @@ function CharacterDetail({ character, translateSpecies }) {
         <div className="detail__info">
           <h2 className="detail__info--name">{character.name}</h2>
           <p className="detail__info--item">
-            Estatus: {character.alive ? '❤️' : '🪦'}
+            Estatus: {character.alive ? '❤️ Con vida' : '🪦'}
           </p>
           <p className="detail__info--item">
             Especie: {translateSpecies(character)}
@@ -68,7 +69,6 @@ function CharacterDetail({ character, translateSpecies }) {
 
 CharacterDetail.propTypes = {
   character: propTypes.object.isRequired,
-  translateSpecies: propTypes.func,
 };
 
 export default CharacterDetail;

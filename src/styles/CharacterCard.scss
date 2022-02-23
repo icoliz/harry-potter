@@ -1,15 +1,15 @@
 @import 'core/variables';
 
 .character {
-  &:nth-child(5n) {
+  &:nth-child(2n) .article__frame {
     animation: 5s ease infinite linger;
   }
-  &:nth-child(2n) {
+  &:nth-child(5n) .article__frame {
     animation: 5s ease infinite linger2;
   }
 }
 
-@keyframes linger {
+@keyframes linger2 {
   0% {
     transform: rotate(0deg);
   }
@@ -27,7 +27,7 @@
   }
 }
 
-@keyframes linger2 {
+@keyframes linger {
   0% {
     transform: rotate(0deg);
   }
@@ -57,6 +57,9 @@
     // Custom cursor from url below
     cursor: url(https://cur.cursors-4u.net/user/use-1/use160.cur), auto !important;
   }
+  &:hover .gif {
+    filter: grayscale(0%);
+  }
   &__frame {
     display: flex;
     justify-content: center;
@@ -72,6 +75,10 @@
       width: 150px;
       height: 210px;
       object-fit: cover;
+    }
+
+    & .gif {
+      filter: grayscale(80%);
     }
   }
   &__name {
