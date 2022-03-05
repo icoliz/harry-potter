@@ -1,11 +1,19 @@
 {
   "files": {
-    "main.css": "./static/css/main.70dae4f6.css",
-    "main.js": "./static/js/main.be6a906f.js",
+    "main.css": "./static/css/main.e56a08d2.css",
+    "main.js": "./static/js/main.0431ca2a.js",
+    "static/media/hp_6.gif": "./static/media/hp_6.494538d56df1b700cf03.gif",
+    "static/media/hp_8.gif": "./static/media/hp_8.b6886ef3827ba049e381.gif",
+    "static/media/hp_5.gif": "./static/media/hp_5.40f0ebd98d2ec4ad2329.gif",
+    "static/media/hp_4.gif": "./static/media/hp_4.23b1a44dee3f21d60904.gif",
     "static/media/frame.png": "./static/media/frame.90dbe9f48b101d922e3a.png",
+    "static/media/hp_7.gif": "./static/media/hp_7.f7ab3c3e100bf9f5c782.gif",
     "static/media/hogwarts-castle.jpg": "./static/media/hogwarts-castle.c1e96fe9931365f6f711.jpg",
     "static/media/gryffindor.png": "./static/media/gryffindor.9e18d3d3f69b37d80767.png",
+    "static/media/hp_2.gif": "./static/media/hp_2.c30a9a374bfe771116d3.gif",
+    "static/media/hp_3.gif": "./static/media/hp_3.56bea2faa31c50af63f4.gif",
     "static/media/ravenclaw.png": "./static/media/ravenclaw.7a5087151087e42ad180.png",
+    "static/media/hp_1.gif": "./static/media/hp_1.b37aca94513f372a3b35.gif",
     "static/media/hp-title.png": "./static/media/hp-title.93df0b1e2c192467003e.png",
     "static/media/slytherin.png": "./static/media/slytherin.c53bb2b69621adf17421.png",
     "static/media/hufflepuff.png": "./static/media/hufflepuff.650864fba87878c8b712.png",
@@ -13,11 +21,11 @@
     "static/media/bg-picture.jpg": "./static/media/bg-picture.047accc7ad00d72a2370.jpg",
     "static/media/dum1.ttf": "./static/media/dum1.36b1097a0c5b2010b545.ttf",
     "index.html": "./index.html",
-    "main.70dae4f6.css.map": "./static/css/main.70dae4f6.css.map",
-    "main.be6a906f.js.map": "./static/js/main.be6a906f.js.map"
+    "main.e56a08d2.css.map": "./static/css/main.e56a08d2.css.map",
+    "main.0431ca2a.js.map": "./static/js/main.0431ca2a.js.map"
   },
   "entrypoints": [
-    "static/css/main.70dae4f6.css",
-    "static/js/main.be6a906f.js"
+    "static/css/main.e56a08d2.css",
+    "static/js/main.0431ca2a.js"
   ]
 }
