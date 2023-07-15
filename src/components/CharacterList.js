@@ -1,9 +1,10 @@
 import CharacterCard from './CharacterCard';
+import NoResults from './NoResults';
 import translateSpecies from '../services/translateSpecies';
 import propTypes from 'prop-types';
 import '../styles/CharacterList.scss';
 
-function CharacterList({ filterData, noResults }) {
+function CharacterList({ filterData, search, select, isLoading }) {
   const characterInfo = filterData.map((char, index) => {
     return (
       <li key={index} className="character">
@@ -19,7 +20,12 @@ function CharacterList({ filterData, noResults }) {
   return (
     <>
       <ul className="main__characters--list">{characterInfo}</ul>
-      {noResults}
+      <NoResults
+        filterData={filterData}
+        search={search}
+        select={select}
+        isLoading={isLoading}
+      />
     </>
   );
 }

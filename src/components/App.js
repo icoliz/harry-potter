@@ -89,19 +89,6 @@ function App() {
     });
   }
 
-  // If there are no results matching the search
-  const noResults = (search) => {
-    if (filterData.length === 0) {
-      return (
-        <p className="error-msg">
-          No hay ningún personaje con el nombre "{search}", prueba a modificar
-          los filtros de la búsqueda.
-        </p>
-      );
-    }
-  };
-
-  // Router
   const renderCharacterDetail = (props) => {
     const routeId = props.match.params.characterId;
     const foundCharacter = data.find((char) => char.id === routeId);
@@ -133,7 +120,9 @@ function App() {
             <section className="main__characters">
               <CharacterList
                 filterData={filterData}
-                noResults={noResults(search)}
+                search={search}
+                select={select}
+                isLoading={isLoading}
               />
             </section>
           </Route>
