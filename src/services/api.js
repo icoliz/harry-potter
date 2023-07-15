@@ -1,8 +1,7 @@
 function callToApi(AppSelect) {
-  return fetch(`https://hp-api.herokuapp.com/api/characters/house/${AppSelect}`)
+  return fetch(`https://hp-api.onrender.com/api/characters/house/${AppSelect}`)
     .then((response) => response.json())
     .then((dataApi) => {
-      // Clean data before using it
       return dataApi.map((char, index) => ({
         id: `${index}${char.dateOfBirth}`,
         image: char.image,
