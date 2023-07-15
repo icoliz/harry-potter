@@ -57,25 +57,19 @@ function App() {
 
   const filterData = data
     .filter((char) => {
-      if (selectedSpecies === 'all') {
-        return true;
-      } else {
-        return char.species === selectedSpecies;
-      }
+      return selectedSpecies === 'all'
+        ? true
+        : char.species === selectedSpecies;
     })
     .filter((char) => {
-      if (search !== '') {
-        return char.name
-          .toLocaleLowerCase()
-          .includes(search.toLocaleLowerCase());
-      } else {
-        return true;
-      }
+      return search !== ''
+        ? char.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+        : true;
     });
 
   if (checked) {
     filterData.sort((a, b) => {
-      a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1;
+      return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1;
     });
   }
 
