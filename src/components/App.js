@@ -79,17 +79,6 @@ function App() {
     });
   }
 
-  const noResults = (search) => {
-    if (!isLoading && filterData.length === 0) {
-      return (
-        <p className="error-msg">
-          No hay ningún personaje con el nombre "{search}", prueba a modificar
-          los filtros de la búsqueda.
-        </p>
-      );
-    }
-  };
-
   const renderCharacterDetail = (props) => {
     const routeId = props.match.params.characterId;
     const foundCharacter = data.find((char) => char.id === routeId);
