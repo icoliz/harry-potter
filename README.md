@@ -4,7 +4,7 @@
 
 ### Descripción de la web
 
-A través de esta página, que saca sus datos de [esta API](http://hp-api.herokuapp.com/api/characters/house/gryffindor). Siguiendo con las pautas del ejercicio, la selección inicial es la casa Gryffindor.
+A través de esta página, que saca sus datos de [esta API](https://hp-api.onrender.com/api/characters/house/gryffindor). Siguiendo con las pautas del ejercicio, la selección inicial es la casa Gryffindor.
 
 A través del campo de búsquea podemos buscar el nombre del personaje que queramos. Si desplegamos el menú de selección podemos filtrar los personajes que queremos ver en función a la casa que tienen asignada. Se pueden aplicar varios filtros a la vez.
 
