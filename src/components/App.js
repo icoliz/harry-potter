@@ -11,7 +11,6 @@ import '../styles/App.scss';
 import NotFound from './NotFound';
 
 function App() {
-  // Declare state variables
   const [data, setData] = useState(ls.get('lsData', []));
   const [search, setSearch] = useState(ls.get('lsSearch', ''));
   const [select, setSelect] = useState(ls.get('lsSelect', 'gryffindor'));
@@ -21,7 +20,6 @@ function App() {
   );
   const [isLoading, setIsLoading] = useState(false);
 
-  // Call to Api and localStorage
   useEffect(() => {
     setIsLoading(true);
     callToApi(select).then((cleanData) => {
@@ -38,7 +36,6 @@ function App() {
     ls.set('lsSelectedSpecies', selectedSpecies);
   }, [data, search, select, checked, selectedSpecies]);
 
-  // Handlers
   const handleChange = (data) => {
     if (data.key === 'search') {
       setSearch(data.value);
@@ -58,7 +55,6 @@ function App() {
     setSelectedSpecies('all');
   };
 
-  // Filters
   const filterData = data
     .filter((char) => {
       if (selectedSpecies === 'all') {
@@ -79,19 +75,12 @@ function App() {
 
   if (checked) {
     filterData.sort((a, b) => {
-      // With < we are sorting "a" before "b"
-      if (a.name.toLowerCase() < b.name.toLowerCase()) {
-        // -1 places our element first, else it will place after it
-        return -1;
-      } else {
-        return 1;
-      }
+      a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1;
     });
   }
 
-  // If there are no results matching the search
   const noResults = (search) => {
-    if (filterData.length === 0) {
+    if (!isLoading && filterData.length === 0) {
       return (
         <p className="error-msg">
           No hay ningún personaje con el nombre "{search}", prueba a modificar
@@ -101,7 +90,6 @@ function App() {
     }
   };
 
-  // Router
   const renderCharacterDetail = (props) => {
     const routeId = props.match.params.characterId;
     const foundCharacter = data.find((char) => char.id === routeId);
