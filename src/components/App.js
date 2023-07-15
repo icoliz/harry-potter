@@ -121,7 +121,9 @@ function App() {
             <section className="main__characters">
               <CharacterList
                 filterData={filterData}
-                noResults={noResults(search)}
+                search={search}
+                select={select}
+                isLoading={isLoading}
               />
             </section>
           </Route>
