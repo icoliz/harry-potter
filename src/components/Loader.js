@@ -17,7 +17,6 @@ function Loading({ loading }) {
   );
 }
 
-// Default props
 Loading.defaultProps = {
   loading: 'hidden',
 };
